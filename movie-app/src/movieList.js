@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import Movies from './movies';
 
 export default function MovieForm() {
     const [title, setTitle] = useState("");
     const [rating, setRating] = useState("");
+    const [movies, setMovies] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,7 +19,15 @@ export default function MovieForm() {
             return;
         }
 
-        // återställer formuläret
+        const newId = movies.length > 0 ? movies[movies.length - 1].id + 1 : 1;
+
+        setMovies([...movies, {
+            id: newId,
+            title: title,
+            rating: rating,
+        }]);
+
+        // Återställer formuläret
         setTitle("");
         setRating("");
     }
@@ -30,7 +40,7 @@ export default function MovieForm() {
 
                     <div className="form-group">
                         <label htmlFor="title-field">Titel:</label>
-                        <input type="text" className="form-control w-25 p-3 m-auto" id="title-field" aria-describedby="titleHelp" placeholder="Ange titel här" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                        <input type="text" className="form-control w-25 p-3 m-auto" id="title-field" aria-describedby="titleHelp" placeholder="Ange titel här" value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
 
                     <label htmlFor="rating-field">Betyg:</label>
@@ -43,9 +53,11 @@ export default function MovieForm() {
                         <option value="5">5</option>
                     </select>
 
-                    <input type="submit" className="btn btn-success mt-3" value="Spara film"/>
+                    <input type="submit" className="btn btn-success mt-3" value="Spara film" />
                 </fieldset>
             </form>
+
+            <Movies movies={movies} setMovies={setMovies}/>
         </div>
     )
 };

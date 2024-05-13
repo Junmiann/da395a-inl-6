@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Movies from './movies';
+import OrderByAlphaButton from './orderByAlphaButton';
+import OrderByRatingButton from './orderByRatingButton';
 
 export default function MovieForm() {
     const [title, setTitle] = useState("");
@@ -33,18 +35,18 @@ export default function MovieForm() {
     }
 
     return (
-        <div>
+        <div className="container">
             <form id="movie-form" onSubmit={handleSubmit}>
                 <fieldset>
                     <legend>Lägg till en film</legend>
 
                     <div className="form-group">
-                        <label htmlFor="title-field">Titel:</label>
-                        <input type="text" className="form-control w-25 p-3 m-auto" id="title-field" aria-describedby="titleHelp" placeholder="Ange titel här" value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <label htmlFor="title-field">Titel</label>
+                        <input type="text" className="form-control w-25 p-2 m-auto" id="title-field" aria-describedby="titleHelp" placeholder="Ange titel här" value={title} onChange={(e) => setTitle(e.target.value)} />
                     </div>
 
-                    <label htmlFor="rating-field">Betyg:</label>
-                    <select className="form-select w-25 p-3 m-auto" id="rating-field" aria-label="Default select" value={rating} onChange={(e) => setRating(e.target.value)}>
+                    <label htmlFor="rating-field" id="rating-field-label">Betyg</label>
+                    <select className="form-select w-25 p-2 m-auto" id="rating-field" aria-label="Default select" value={rating} onChange={(e) => setRating(e.target.value)}>
                         <option defaultValue>Välj betyg här</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -57,7 +59,12 @@ export default function MovieForm() {
                 </fieldset>
             </form>
 
-            <Movies movies={movies} setMovies={setMovies}/>
+            <h2>Inlagda filmer</h2>
+            <Movies movies={movies} setMovies={setMovies} />
+            <div className="sort-button w-25 m-auto">
+                <OrderByAlphaButton movies={movies} setMovies={setMovies} />
+                <OrderByRatingButton movies={movies} setMovies={setMovies} />
+            </div>
         </div>
     )
 };

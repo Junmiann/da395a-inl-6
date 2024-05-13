@@ -3,6 +3,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App>h1 {
+.App>h1{
   font-weight: bold;
+  margin-top: 2em;
 }

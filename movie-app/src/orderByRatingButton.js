@@ -9,4 +9,4 @@ export default function OrderByRatingButton({ movies, setMovies }) {
     return (
         <button className="btn btn-primary sort-button" onClick={handleSortRating}>Betygsordning</button>
     )
-}
+};

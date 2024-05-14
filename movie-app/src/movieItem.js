@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function MovieItem(props) {
+
     return (
         <li className="movie-list-item w-25 m-auto">
             { props.item.title }
@@ -8,4 +9,4 @@ export default function MovieItem(props) {
             { props.getStars(props.item.rating) }
         </li>
     );
-}
+};

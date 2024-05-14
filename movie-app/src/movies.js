@@ -2,10 +2,12 @@ import React from "react";
 import MovieItem from './movieItem';
 
 export default function Movies({ movies, setMovies }) {
+    
+    // Returnera stjärnor beroende på betyg
     const getStars = (nrOfStars) => {
         const stars = [];
         for (let i = 0; i < nrOfStars; i++) {
-            stars.push(<img src="./star.png" alt="Star" className="star-icon float-end" />);
+            stars.push(<img key={i} src="./star.png" alt="Star" className="star-icon float-end" />);
         }
         return stars;
     }
@@ -19,4 +21,4 @@ export default function Movies({ movies, setMovies }) {
             {movies.map(movie => (<MovieItem key={movie.id} item={movie} getStars={getStars} deleteMovie={deleteMovie} />))}
         </ul>
     );
-}
+};

@@ -9,4 +9,4 @@ export default function OrderByAlphaButton({ movies, setMovies }) {
     return (
         <button className="btn btn-primary sort-button" onClick={handleSortAlphabetically}>Alfabetisk ordning</button>
     )
-}
+};

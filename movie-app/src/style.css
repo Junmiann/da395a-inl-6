@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+/* headings */
+.container>h1 {
+    font-weight: bold;
+    margin-top: 2em;
+}
+
+.container>h2,
+#movie-form>fieldset>legend {
+margin-top: 1em;
+font-weight: bold;
+border-top: 1px solid #999;
+padding: 0.5em;
+}
+
+/* form */
+#rating-field-label {
+margin-top: 0.8em;
+}
+
+/* movie item */
+.movie-list-item {
+list-style-type: none;
+padding: 1em;
+text-align: start;
+box-shadow: 0 4px 4px -2px #808080;
+}
+
+.star-icon {
+width: 1.5em;
+}
+
+.delete-button {
+margin-left: 10px;
+}
+
+/* sort buttons */
+.sort-button {
+display: flex;
+justify-content: space-between;
+margin-bottom: 2em;
+}
